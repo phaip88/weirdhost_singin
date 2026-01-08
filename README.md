@@ -1,1 +1,4 @@
-# weirdhost_singin
+# 三个变量：
+# REMEMBER_WEB_COOKIE
+# PTERODACTYL_EMAIL
+# PTERODACTYL_PASSWORD
