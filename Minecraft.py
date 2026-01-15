@@ -117,7 +117,12 @@ def add_server_time(server_url="https://hub.weirdhost.xyz/server/2bb30b54"):
                 # 等待按钮完全加载、可见且可交互
                 add_button.wait_for(state='attached', timeout=30000)
                 add_button.wait_for(state='visible', timeout=30000)
-                add_button.wait_for(state='enabled', timeout=30000)
+                # 检查按钮是否可用
+                if not add_button.is_enabled():
+                    print("错误: '시간 추가' 按钮不可用。")
+                    page.screenshot(path="add_button_not_enabled.png")
+                    browser.close()
+                    return False
                 
                 # 使用click的force选项确保点击生效，同时添加重试机制
                 for attempt in range(3):
